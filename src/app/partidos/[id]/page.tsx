@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { getMatchById, getMatchWithPlayers } from "@/repositories/matches";
+import { isAuthenticated } from "@/lib/auth";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 import { formatMatchDate } from "@/lib/format";
 
 type Props = { params: Promise<{ id: string }> };
@@ -11,9 +14,10 @@ export default async function MatchDetailPage({ params }: Props) {
   const matchId = parseInt(id);
   if (isNaN(matchId)) notFound();
 
-  const [match, playerRows] = await Promise.all([
+  const [match, playerRows, authed] = await Promise.all([
     getMatchById(matchId),
     getMatchWithPlayers(matchId),
+    isAuthenticated(),
   ]);
 
   if (!match) notFound();
@@ -27,6 +31,14 @@ export default async function MatchDetailPage({ params }: Props) {
 
   return (
     <div className="space-y-8 max-w-2xl mx-auto">
+      {authed && (
+        <div className="flex justify-end">
+          <Link href={`/partidos/${matchId}/editar`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+            Editar partido
+          </Link>
+        </div>
+      )}
+
       {/* Scoreboard */}
       <div className="text-center space-y-3 py-4">
         <p className="text-sm text-muted-foreground">{formatMatchDate(match.playedAt)}</p>

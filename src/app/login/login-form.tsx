@@ -38,6 +38,7 @@ export function LoginForm() {
         placeholder="Contraseña"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        autoComplete="current-password"
         autoFocus
       />
       {error && <p className="text-destructive text-sm">{error}</p>}

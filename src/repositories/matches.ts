@@ -31,6 +31,29 @@ export async function getAllMatchPlayersWithMatch() {
     .leftJoin(matches, eq(matchPlayers.matchId, matches.id));
 }
 
+export async function updateMatch(
+  matchId: number,
+  matchData: Partial<NewMatch>,
+  playerEntries: NewMatchPlayer[],
+) {
+  return db.transaction(async (tx) => {
+    const [match] = await tx
+      .update(matches)
+      .set(matchData)
+      .where(eq(matches.id, matchId))
+      .returning();
+    await tx.delete(matchPlayers).where(eq(matchPlayers.matchId, matchId));
+    if (playerEntries.length > 0) {
+      await tx.insert(matchPlayers).values(playerEntries.map((e) => ({ ...e, matchId })));
+    }
+    return match;
+  });
+}
+
+export async function deleteMatch(id: number) {
+  await db.delete(matches).where(eq(matches.id, id));
+}
+
 export async function createMatch(
   matchData: NewMatch,
   playerEntries: NewMatchPlayer[],

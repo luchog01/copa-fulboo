@@ -17,6 +17,15 @@ export async function createPlayer(data: NewPlayer) {
   return rows[0];
 }
 
+export async function updatePlayer(id: number, data: Pick<NewPlayer, "name" | "nickname">) {
+  const rows = await db.update(players).set(data).where(eq(players.id, id)).returning();
+  return rows[0] ?? null;
+}
+
+export async function deletePlayer(id: number) {
+  await db.delete(players).where(eq(players.id, id));
+}
+
 export async function getPlayersWithMatchData() {
   return db
     .select()

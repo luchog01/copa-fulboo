@@ -126,6 +126,15 @@ export default async function JugadoresPage({ searchParams }: Props) {
                       {s.player.nickname && (
                         <span className="text-muted-foreground ml-1 text-xs">({s.player.nickname})</span>
                       )}
+                      {authed && (
+                        <Link
+                          href={`/jugadores/${s.player.id}/editar`}
+                          className="ml-2 text-muted-foreground/40 hover:text-muted-foreground transition-colors text-xs"
+                          title="Editar jugador"
+                        >
+                          ✎
+                        </Link>
+                      )}
                     </td>
                     <td className="px-4 py-3 text-center">{s.played}</td>
                     <td className="px-4 py-3 text-center text-green-500 font-medium">{s.won}</td>
