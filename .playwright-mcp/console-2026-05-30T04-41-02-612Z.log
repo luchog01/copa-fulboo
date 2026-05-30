@@ -4,3 +4,50 @@
 [     481ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
 [    3510ms] [WARNING] The resource http://localhost:3000/_next/static/media/797e433ab948586e-s.p.09zddjkbdep5a.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/partidos/nuevo:0
 [    3510ms] [WARNING] The resource http://localhost:3000/_next/static/media/fba5a26ea33df6a3-s.p.0eehd8tgys7nv.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/partidos/nuevo:0
+[  723468ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  724866ms] [LOG] [Fast Refresh] done in 1502ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  724968ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  725124ms] [LOG] [Fast Refresh] done in 256ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  725269ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  725389ms] [LOG] [Fast Refresh] done in 221ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726035ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726045ms] [LOG] [Fast Refresh] done in 112ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726170ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726176ms] [LOG] [Fast Refresh] done in 106ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726299ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726338ms] [LOG] [Fast Refresh] done in 150ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  726975ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727009ms] [LOG] [Fast Refresh] done in 139ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727113ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727140ms] [LOG] [Fast Refresh] done in 131ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727251ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727257ms] [LOG] [Fast Refresh] done in 117ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727418ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727456ms] [LOG] [Fast Refresh] done in 147ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[  727506ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "new-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/login:0
+[  730525ms] [WARNING] The resource http://localhost:3000/_next/static/media/797e433ab948586e-s.p.09zddjkbdep5a.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[  730525ms] [WARNING] The resource http://localhost:3000/_next/static/media/fba5a26ea33df6a3-s.p.0eehd8tgys7nv.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1110124ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1110434ms] [LOG] [Fast Refresh] done in 418ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1110541ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1110545ms] [LOG] [Fast Refresh] done in 107ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1113657ms] [WARNING] The resource http://localhost:3000/_next/static/media/797e433ab948586e-s.p.09zddjkbdep5a.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1113657ms] [WARNING] The resource http://localhost:3000/_next/static/media/fba5a26ea33df6a3-s.p.0eehd8tgys7nv.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1162215ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1162528ms] [LOG] [Fast Refresh] done in 416ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1165766ms] [WARNING] The resource http://localhost:3000/_next/static/media/797e433ab948586e-s.p.09zddjkbdep5a.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1165766ms] [WARNING] The resource http://localhost:3000/_next/static/media/fba5a26ea33df6a3-s.p.0eehd8tgys7nv.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1169199ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1169695ms] [LOG] [Fast Refresh] done in 543ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1169801ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1169978ms] [LOG] [Fast Refresh] done in 280ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1170224ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1170305ms] [LOG] [Fast Refresh] done in 183ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1170546ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1170548ms] [LOG] [Fast Refresh] done in 103ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1173873ms] [WARNING] The resource http://localhost:3000/_next/static/media/797e433ab948586e-s.p.09zddjkbdep5a.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1173874ms] [WARNING] The resource http://localhost:3000/_next/static/media/fba5a26ea33df6a3-s.p.0eehd8tgys7nv.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/login:0
+[ 1201406ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1201547ms] [LOG] [Fast Refresh] done in 248ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1201951ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[ 1202077ms] [LOG] [Fast Refresh] done in 231ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477

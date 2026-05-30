@@ -46,9 +46,10 @@ pnpm db:studio    # Drizzle Studio UI
 ## Variables de entorno
 ```
 DATABASE_URL=postgresql://postgres@localhost:5432/copa_fulboo
-ADMIN_PASSWORD=fulboo123
-AUTH_SECRET=super-secret-dev-key-change-in-prod
+ADMIN_PASSWORD=<tu-clave-admin>
+AUTH_SECRET=<secret-largo-y-aleatorio>
 ```
+Ver `.env.local` (no commitear) o `.env.example` para valores de dev.
 
 ## Skills disponibles
 - `.claude/skills/db-migrate/` — generar y aplicar migraciones Drizzle
