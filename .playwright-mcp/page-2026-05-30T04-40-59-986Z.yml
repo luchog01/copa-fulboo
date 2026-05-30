@@ -1,0 +1,141 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "⚽ Copa Fulboo" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: ⚽
+        - generic [ref=e6]: Copa Fulboo
+      - generic [ref=e7]:
+        - link "Partidos" [ref=e8] [cursor=pointer]:
+          - /url: /partidos
+        - link "Jugadores" [ref=e9] [cursor=pointer]:
+          - /url: /jugadores
+        - link "+ Partido" [ref=e33] [cursor=pointer]:
+          - /url: /partidos/nuevo
+        - button "Salir" [ref=e34]
+        - button "Cambiar tema" [ref=e11]:
+          - img [ref=e12]
+          - generic [ref=e15]: Oscuro
+  - main [ref=e16]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - heading "⚽ Copa Fulboo" [level=1] [ref=e37]
+        - paragraph [ref=e38]: El grupo de siempre, el fútbol de siempre
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - heading "Últimos partidos" [level=2] [ref=e42]
+            - link "Ver todos →" [ref=e43] [cursor=pointer]:
+              - /url: /partidos
+          - generic [ref=e44]:
+            - link "vie, 29 may 2026, 11:44 p. m. Local 3 – 1 Visitante 5v5" [ref=e45] [cursor=pointer]:
+              - /url: /partidos/4
+              - generic [ref=e48]:
+                - generic [ref=e49]:
+                  - generic [ref=e50]: vie, 29 may 2026, 11:44 p. m.
+                  - generic [ref=e51]:
+                    - generic [ref=e52]:
+                      - generic [ref=e53]: Local
+                      - generic [ref=e54]: "3"
+                    - generic [ref=e55]: –
+                    - generic [ref=e56]:
+                      - generic [ref=e57]: "1"
+                      - generic [ref=e58]: Visitante
+                - generic [ref=e60]: 5v5
+            - link "vie, 22 may 2026, 11:35 p. m. Local 4 – 2 Visitante 5v5" [ref=e61] [cursor=pointer]:
+              - /url: /partidos/1
+              - generic [ref=e64]:
+                - generic [ref=e65]:
+                  - generic [ref=e66]: vie, 22 may 2026, 11:35 p. m.
+                  - generic [ref=e67]:
+                    - generic [ref=e68]:
+                      - generic [ref=e69]: Local
+                      - generic [ref=e70]: "4"
+                    - generic [ref=e71]: –
+                    - generic [ref=e72]:
+                      - generic [ref=e73]: "2"
+                      - generic [ref=e74]: Visitante
+                - generic [ref=e76]: 5v5
+            - link "vie, 15 may 2026, 11:35 p. m. Local 1 – 1 Visitante Empate 5v5" [ref=e77] [cursor=pointer]:
+              - /url: /partidos/2
+              - generic [ref=e80]:
+                - generic [ref=e81]:
+                  - generic [ref=e82]: vie, 15 may 2026, 11:35 p. m.
+                  - generic [ref=e83]:
+                    - generic [ref=e84]:
+                      - generic [ref=e85]: Local
+                      - generic [ref=e86]: "1"
+                    - generic [ref=e87]: –
+                    - generic [ref=e88]:
+                      - generic [ref=e89]: "1"
+                      - generic [ref=e90]: Visitante
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Empate
+                  - generic [ref=e93]: 5v5
+            - link "vie, 8 may 2026, 11:35 p. m. Local 3 – 5 Visitante 8v8" [ref=e94] [cursor=pointer]:
+              - /url: /partidos/3
+              - generic [ref=e97]:
+                - generic [ref=e98]:
+                  - generic [ref=e99]: vie, 8 may 2026, 11:35 p. m.
+                  - generic [ref=e100]:
+                    - generic [ref=e101]:
+                      - generic [ref=e102]: Local
+                      - generic [ref=e103]: "3"
+                    - generic [ref=e104]: –
+                    - generic [ref=e105]:
+                      - generic [ref=e106]: "5"
+                      - generic [ref=e107]: Visitante
+                - generic [ref=e109]: 8v8
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - heading "Top jugadores" [level=2] [ref=e112]
+            - link "Ver tabla →" [ref=e113] [cursor=pointer]:
+              - /url: /jugadores
+          - table [ref=e116]:
+            - rowgroup [ref=e117]:
+              - row "# Jugador PJ G %" [ref=e118]:
+                - columnheader "#" [ref=e119]
+                - columnheader "Jugador" [ref=e120]
+                - columnheader "PJ" [ref=e121]
+                - columnheader "G" [ref=e122]
+                - columnheader "%" [ref=e123]
+            - rowgroup [ref=e124]:
+              - row "1 Eze★1 4 2 50%" [ref=e125]:
+                - cell "1" [ref=e126]
+                - cell "Eze★1" [ref=e127]:
+                  - text: Eze
+                  - generic [ref=e128]: ★1
+                - cell "4" [ref=e129]
+                - cell "2" [ref=e130]
+                - cell "50%" [ref=e131]
+              - row "2 Luci★1 4 2 50%" [ref=e132]:
+                - cell "2" [ref=e133]
+                - cell "Luci★1" [ref=e134]:
+                  - text: Luci
+                  - generic [ref=e135]: ★1
+                - cell "4" [ref=e136]
+                - cell "2" [ref=e137]
+                - cell "50%" [ref=e138]
+              - row "3 Mati★1 4 2 50%" [ref=e139]:
+                - cell "3" [ref=e140]
+                - cell "Mati★1" [ref=e141]:
+                  - text: Mati
+                  - generic [ref=e142]: ★1
+                - cell "4" [ref=e143]
+                - cell "2" [ref=e144]
+                - cell "50%" [ref=e145]
+              - row "4 Nico 4 2 50%" [ref=e146]:
+                - cell "4" [ref=e147]
+                - cell "Nico" [ref=e148]
+                - cell "4" [ref=e149]
+                - cell "2" [ref=e150]
+                - cell "50%" [ref=e151]
+              - row "5 Santi 4 2 50%" [ref=e152]:
+                - cell "5" [ref=e153]
+                - cell "Santi" [ref=e154]
+                - cell "4" [ref=e155]
+                - cell "2" [ref=e156]
+                - cell "50%" [ref=e157]
+  - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+    - img [ref=e28]
+  - alert [ref=e32]

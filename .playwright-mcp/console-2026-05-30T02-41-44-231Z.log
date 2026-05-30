@@ -1,0 +1,4 @@
+[     122ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[     298ms] [LOG] [Fast Refresh] done in 286ms @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[    1138ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477
+[    1147ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0nfi_next_dist_0web03n._.js:2477

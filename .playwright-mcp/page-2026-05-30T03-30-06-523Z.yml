@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "⚽ Copa Fulboo" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e5]: ⚽
+        - generic [ref=e6]: Copa Fulboo
+      - generic [ref=e7]:
+        - link "Partidos" [ref=e8] [cursor=pointer]:
+          - /url: /partidos
+        - link "Jugadores" [ref=e9] [cursor=pointer]:
+          - /url: /jugadores
+        - link "Admin" [ref=e10] [cursor=pointer]:
+          - /url: /login
+        - button "Cambiar tema" [ref=e12]:
+          - img [ref=e13]
+  - main [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e18]:
+        - heading "Jugadores" [level=1] [ref=e19]
+        - paragraph [ref=e20]: 10 jugadores en el grupo
+      - table [ref=e24]:
+        - rowgroup [ref=e25]:
+          - row "# Jugador PJ G E P MVP % Vic" [ref=e26]:
+            - columnheader "#" [ref=e27]
+            - columnheader "Jugador" [ref=e28]
+            - columnheader "PJ" [ref=e29]
+            - columnheader "G" [ref=e30]
+            - columnheader "E" [ref=e31]
+            - columnheader "P" [ref=e32]
+            - columnheader "MVP" [ref=e33]
+            - columnheader "% Vic" [ref=e34]
+        - rowgroup [ref=e35]:
+          - row "1 Ezequiel(Eze) 4 2 1 1 ★ 1 50%" [ref=e36]:
+            - cell "1" [ref=e37]
+            - cell "Ezequiel(Eze)" [ref=e38]:
+              - text: Ezequiel
+              - generic [ref=e39]: (Eze)
+            - cell "4" [ref=e40]
+            - cell "2" [ref=e41]
+            - cell "1" [ref=e42]
+            - cell "1" [ref=e43]
+            - cell "★ 1" [ref=e44]
+            - cell "50%" [ref=e45]:
+              - generic [ref=e46]: 50%
+          - row "2 Luciano(Luci) 4 2 1 1 ★ 1 50%" [ref=e47]:
+            - cell "2" [ref=e48]
+            - cell "Luciano(Luci)" [ref=e49]:
+              - text: Luciano
+              - generic [ref=e50]: (Luci)
+            - cell "4" [ref=e51]
+            - cell "2" [ref=e52]
+            - cell "1" [ref=e53]
+            - cell "1" [ref=e54]
+            - cell "★ 1" [ref=e55]
+            - cell "50%" [ref=e56]:
+              - generic [ref=e57]: 50%
+          - row "3 Matías(Mati) 4 2 1 1 ★ 1 50%" [ref=e58]:
+            - cell "3" [ref=e59]
+            - cell "Matías(Mati)" [ref=e60]:
+              - text: Matías
+              - generic [ref=e61]: (Mati)
+            - cell "4" [ref=e62]
+            - cell "2" [ref=e63]
+            - cell "1" [ref=e64]
+            - cell "1" [ref=e65]
+            - cell "★ 1" [ref=e66]
+            - cell "50%" [ref=e67]:
+              - generic [ref=e68]: 50%
+          - row "4 Nicolás(Nico) 4 2 1 1 — 50%" [ref=e69]:
+            - cell "4" [ref=e70]
+            - cell "Nicolás(Nico)" [ref=e71]:
+              - text: Nicolás
+              - generic [ref=e72]: (Nico)
+            - cell "4" [ref=e73]
+            - cell "2" [ref=e74]
+            - cell "1" [ref=e75]
+            - cell "1" [ref=e76]
+            - cell "—" [ref=e77]
+            - cell "50%" [ref=e78]:
+              - generic [ref=e79]: 50%
+          - row "5 Santiago(Santi) 4 2 1 1 — 50%" [ref=e80]:
+            - cell "5" [ref=e81]
+            - cell "Santiago(Santi)" [ref=e82]:
+              - text: Santiago
+              - generic [ref=e83]: (Santi)
+            - cell "4" [ref=e84]
+            - cell "2" [ref=e85]
+            - cell "1" [ref=e86]
+            - cell "1" [ref=e87]
+            - cell "—" [ref=e88]
+            - cell "50%" [ref=e89]:
+              - generic [ref=e90]: 50%
+          - row "6 Federico(Fede) 5 2 1 2 — 40%" [ref=e91]:
+            - cell "6" [ref=e92]
+            - cell "Federico(Fede)" [ref=e93]:
+              - text: Federico
+              - generic [ref=e94]: (Fede)
+            - cell "5" [ref=e95]
+            - cell "2" [ref=e96]
+            - cell "1" [ref=e97]
+            - cell "2" [ref=e98]
+            - cell "—" [ref=e99]
+            - cell "40%" [ref=e100]:
+              - generic [ref=e101]: 40%
+          - row "7 Rodrigo(Rodri) 3 1 1 1 — 33%" [ref=e102]:
+            - cell "7" [ref=e103]
+            - cell "Rodrigo(Rodri)" [ref=e104]:
+              - text: Rodrigo
+              - generic [ref=e105]: (Rodri)
+            - cell "3" [ref=e106]
+            - cell "1" [ref=e107]
+            - cell "1" [ref=e108]
+            - cell "1" [ref=e109]
+            - cell "—" [ref=e110]
+            - cell "33%" [ref=e111]:
+              - generic [ref=e112]: 33%
+          - row "8 Agustín(Agus) 4 1 1 2 — 25%" [ref=e113]:
+            - cell "8" [ref=e114]
+            - cell "Agustín(Agus)" [ref=e115]:
+              - text: Agustín
+              - generic [ref=e116]: (Agus)
+            - cell "4" [ref=e117]
+            - cell "1" [ref=e118]
+            - cell "1" [ref=e119]
+            - cell "2" [ref=e120]
+            - cell "—" [ref=e121]
+            - cell "25%" [ref=e122]:
+              - generic [ref=e123]: 25%
+          - row "9 Gonzalo(Gonza) 5 1 1 3 — 20%" [ref=e124]:
+            - cell "9" [ref=e125]
+            - cell "Gonzalo(Gonza)" [ref=e126]:
+              - text: Gonzalo
+              - generic [ref=e127]: (Gonza)
+            - cell "5" [ref=e128]
+            - cell "1" [ref=e129]
+            - cell "1" [ref=e130]
+            - cell "3" [ref=e131]
+            - cell "—" [ref=e132]
+            - cell "20%" [ref=e133]:
+              - generic [ref=e134]: 20%
+          - row "10 Tomás(Tomi) 3 0 1 2 — 0%" [ref=e135]:
+            - cell "10" [ref=e136]
+            - cell "Tomás(Tomi)" [ref=e137]:
+              - text: Tomás
+              - generic [ref=e138]: (Tomi)
+            - cell "3" [ref=e139]
+            - cell "0" [ref=e140]
+            - cell "1" [ref=e141]
+            - cell "2" [ref=e142]
+            - cell "—" [ref=e143]
+            - cell "0%" [ref=e144]:
+              - generic [ref=e145]: 0%
+  - button "Open Next.js Dev Tools" [ref=e151] [cursor=pointer]:
+    - img [ref=e152]
+  - alert [ref=e155]

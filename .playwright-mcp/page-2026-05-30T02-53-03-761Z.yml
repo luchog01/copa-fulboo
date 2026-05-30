@@ -1,0 +1,116 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "⚽ Copa Fulboo" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e5]:
+        - link "Partidos" [ref=e6] [cursor=pointer]:
+          - /url: /partidos
+        - link "Jugadores" [ref=e7] [cursor=pointer]:
+          - /url: /jugadores
+        - link "Admin" [ref=e8] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "⚽ Copa Fulboo" [level=1] [ref=e12]
+        - paragraph [ref=e13]: El grupo de siempre, el fútbol de siempre
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - heading "Últimos partidos" [level=2] [ref=e17]
+            - link "Ver todos →" [ref=e18] [cursor=pointer]:
+              - /url: /partidos
+          - generic [ref=e19]:
+            - link "vie, 29 may 2026, 11:44 p. m. 3 – 1 5v5" [ref=e20] [cursor=pointer]:
+              - /url: /partidos/4
+              - generic [ref=e23]:
+                - generic [ref=e24]:
+                  - generic [ref=e25]: vie, 29 may 2026, 11:44 p. m.
+                  - generic [ref=e26]:
+                    - generic [ref=e27]: "3"
+                    - generic [ref=e28]: –
+                    - generic [ref=e29]: "1"
+                - generic [ref=e30]: 5v5
+            - link "vie, 22 may 2026, 11:35 p. m. 4 – 2 5v5" [ref=e31] [cursor=pointer]:
+              - /url: /partidos/1
+              - generic [ref=e34]:
+                - generic [ref=e35]:
+                  - generic [ref=e36]: vie, 22 may 2026, 11:35 p. m.
+                  - generic [ref=e37]:
+                    - generic [ref=e38]: "4"
+                    - generic [ref=e39]: –
+                    - generic [ref=e40]: "2"
+                - generic [ref=e41]: 5v5
+            - link "vie, 15 may 2026, 11:35 p. m. 1 – 1 5v5" [ref=e42] [cursor=pointer]:
+              - /url: /partidos/2
+              - generic [ref=e45]:
+                - generic [ref=e46]:
+                  - generic [ref=e47]: vie, 15 may 2026, 11:35 p. m.
+                  - generic [ref=e48]:
+                    - generic [ref=e49]: "1"
+                    - generic [ref=e50]: –
+                    - generic [ref=e51]: "1"
+                - generic [ref=e52]: 5v5
+            - link "vie, 8 may 2026, 11:35 p. m. 3 – 5 8v8" [ref=e53] [cursor=pointer]:
+              - /url: /partidos/3
+              - generic [ref=e56]:
+                - generic [ref=e57]:
+                  - generic [ref=e58]: vie, 8 may 2026, 11:35 p. m.
+                  - generic [ref=e59]:
+                    - generic [ref=e60]: "3"
+                    - generic [ref=e61]: –
+                    - generic [ref=e62]: "5"
+                - generic [ref=e63]: 8v8
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - heading "Top jugadores" [level=2] [ref=e66]
+            - link "Ver tabla →" [ref=e67] [cursor=pointer]:
+              - /url: /jugadores
+          - table [ref=e70]:
+            - rowgroup [ref=e71]:
+              - row "# Jugador PJ G %" [ref=e72]:
+                - columnheader "#" [ref=e73]
+                - columnheader "Jugador" [ref=e74]
+                - columnheader "PJ" [ref=e75]
+                - columnheader "G" [ref=e76]
+                - columnheader "%" [ref=e77]
+            - rowgroup [ref=e78]:
+              - row "1 Eze★1 4 2 50%" [ref=e79]:
+                - cell "1" [ref=e80]
+                - cell "Eze★1" [ref=e81]:
+                  - text: Eze
+                  - generic [ref=e82]: ★1
+                - cell "4" [ref=e83]
+                - cell "2" [ref=e84]
+                - cell "50%" [ref=e85]
+              - row "2 Luci★1 4 2 50%" [ref=e86]:
+                - cell "2" [ref=e87]
+                - cell "Luci★1" [ref=e88]:
+                  - text: Luci
+                  - generic [ref=e89]: ★1
+                - cell "4" [ref=e90]
+                - cell "2" [ref=e91]
+                - cell "50%" [ref=e92]
+              - row "3 Mati★1 4 2 50%" [ref=e93]:
+                - cell "3" [ref=e94]
+                - cell "Mati★1" [ref=e95]:
+                  - text: Mati
+                  - generic [ref=e96]: ★1
+                - cell "4" [ref=e97]
+                - cell "2" [ref=e98]
+                - cell "50%" [ref=e99]
+              - row "4 Nico 4 2 50%" [ref=e100]:
+                - cell "4" [ref=e101]
+                - cell "Nico" [ref=e102]
+                - cell "4" [ref=e103]
+                - cell "2" [ref=e104]
+                - cell "50%" [ref=e105]
+              - row "5 Santi 4 2 50%" [ref=e106]:
+                - cell "5" [ref=e107]
+                - cell "Santi" [ref=e108]
+                - cell "4" [ref=e109]
+                - cell "2" [ref=e110]
+                - cell "50%" [ref=e111]
+  - button "Open Next.js Dev Tools" [ref=e117] [cursor=pointer]:
+    - img [ref=e118]
