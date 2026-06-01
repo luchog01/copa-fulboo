@@ -5,36 +5,88 @@ import { createMatchAction } from "./actions";
 import type { Player } from "@/db/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ComboboxRoot,
+  ComboboxInputGroup,
+  ComboboxChips,
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxInput,
+  ComboboxTrigger,
+  ComboboxContent,
+  ComboboxItem,
+} from "@/components/ui/combobox";
 
 type Props = { players: Player[] };
 
-function PlayerToggle({
-  player,
-  selected,
-  disabled,
-  onToggle,
+function playerLabel(p: Player) {
+  return p.nickname ? `${p.name} (${p.nickname})` : p.name;
+}
+
+function PlayerCombobox({
+  label,
+  players,
+  availablePlayers,
+  selectedIds,
+  onChangeIds,
 }: {
-  player: Player;
-  selected: boolean;
-  disabled: boolean;
-  onToggle: () => void;
+  label: string;
+  players: Player[];
+  availablePlayers: Player[];
+  selectedIds: number[];
+  onChangeIds: (ids: number[]) => void;
 }) {
+  const [query, setQuery] = useState("");
+
+  const filtered = query.trim()
+    ? availablePlayers.filter((p) =>
+        playerLabel(p).toLowerCase().includes(query.toLowerCase())
+      )
+    : availablePlayers;
+
   return (
-    <button
-      type="button"
-      onClick={onToggle}
-      disabled={disabled}
-      className={`px-3 py-1.5 rounded-full text-sm border transition-colors ${
-        selected
-          ? "bg-primary text-primary-foreground border-primary"
-          : disabled
-          ? "border-border text-muted-foreground/30 cursor-not-allowed"
-          : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-      }`}
-    >
-      {player.nickname ?? player.name}
-    </button>
+    <div className="space-y-1.5">
+      <span className="text-sm font-medium">
+        {label} ({selectedIds.length})
+      </span>
+      <ComboboxRoot
+        multiple
+        value={selectedIds}
+        onValueChange={(ids) => {
+          onChangeIds(ids);
+          setQuery("");
+        }}
+        onInputValueChange={(val) => setQuery(val)}
+      >
+        <ComboboxInputGroup>
+          <ComboboxChips>
+            {selectedIds.map((id) => {
+              const p = players.find((pl) => pl.id === id)!;
+              return (
+                <ComboboxChip key={id}>
+                  <span>{playerLabel(p)}</span>
+                  <ComboboxChipRemove />
+                </ComboboxChip>
+              );
+            })}
+          </ComboboxChips>
+          <ComboboxInput placeholder={`Buscar ${label.toLowerCase()}...`} />
+          <ComboboxTrigger />
+        </ComboboxInputGroup>
+        <ComboboxContent>
+          {filtered.map((p) => (
+            <ComboboxItem key={p.id} value={p.id}>
+              {playerLabel(p)}
+            </ComboboxItem>
+          ))}
+          {filtered.length === 0 && (
+            <div className="py-4 text-center text-sm text-muted-foreground">
+              Sin resultados
+            </div>
+          )}
+        </ComboboxContent>
+      </ComboboxRoot>
+    </div>
   );
 }
 
@@ -43,29 +95,11 @@ export function NewMatchForm({ players }: Props) {
   const [homePlayers, setHomePlayers] = useState<number[]>([]);
   const [awayPlayers, setAwayPlayers] = useState<number[]>([]);
   const [mvpId, setMvpId] = useState<number | null>(null);
-  const [query, setQuery] = useState("");
 
   const allSelected = [...homePlayers, ...awayPlayers];
-
-  const filteredPlayers = query.trim()
-    ? players.filter((p) => {
-        const q = query.toLowerCase();
-        return (
-          p.name.toLowerCase().includes(q) ||
-          (p.nickname?.toLowerCase().includes(q) ?? false)
-        );
-      })
-    : players;
-
-  function toggleHome(id: number) {
-    if (awayPlayers.includes(id)) return;
-    setHomePlayers((prev) => (prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]));
-  }
-
-  function toggleAway(id: number) {
-    if (homePlayers.includes(id)) return;
-    setAwayPlayers((prev) => (prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]));
-  }
+  const availablePlayers = players.filter(
+    (p) => !homePlayers.includes(p.id) && !awayPlayers.includes(p.id)
+  );
 
   const now = new Date();
   const defaultDateTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}T${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
@@ -108,92 +142,21 @@ export function NewMatchForm({ players }: Props) {
         </div>
       </div>
 
-      {/* Player selection */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-medium">Jugadores</span>
-          <span className="text-xs text-muted-foreground">
-            {homePlayers.length} local · {awayPlayers.length} visitante
-          </span>
-        </div>
-
-        {/* Search filter */}
-        <div className="relative">
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-            width="14" height="14" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-          </svg>
-          <Input
-            type="text"
-            placeholder="Buscar jugador..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="pl-9 h-9 text-sm"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => setQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Limpiar búsqueda"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm">Local ({homePlayers.length})</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {filteredPlayers.length === 0 ? (
-                <p className="text-xs text-muted-foreground">Sin resultados</p>
-              ) : (
-                <div className="flex flex-wrap gap-2">
-                  {filteredPlayers.map((p) => (
-                    <PlayerToggle
-                      key={p.id}
-                      player={p}
-                      selected={homePlayers.includes(p.id)}
-                      disabled={awayPlayers.includes(p.id)}
-                      onToggle={() => toggleHome(p.id)}
-                    />
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm">Visitante ({awayPlayers.length})</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {filteredPlayers.length === 0 ? (
-                <p className="text-xs text-muted-foreground">Sin resultados</p>
-              ) : (
-                <div className="flex flex-wrap gap-2">
-                  {filteredPlayers.map((p) => (
-                    <PlayerToggle
-                      key={p.id}
-                      player={p}
-                      selected={awayPlayers.includes(p.id)}
-                      disabled={homePlayers.includes(p.id)}
-                      onToggle={() => toggleAway(p.id)}
-                    />
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+      <div className="grid grid-cols-2 gap-4">
+        <PlayerCombobox
+          label="Local"
+          players={players}
+          availablePlayers={availablePlayers}
+          selectedIds={homePlayers}
+          onChangeIds={setHomePlayers}
+        />
+        <PlayerCombobox
+          label="Visitante"
+          players={players}
+          availablePlayers={availablePlayers}
+          selectedIds={awayPlayers}
+          onChangeIds={setAwayPlayers}
+        />
       </div>
 
       {allSelected.length > 0 && (
@@ -213,7 +176,7 @@ export function NewMatchForm({ players }: Props) {
                       : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
                   }`}
                 >
-                  {mvpId === p.id ? "★ " : ""}{p.nickname ?? p.name}
+                  {mvpId === p.id ? "★ " : ""}{playerLabel(p)}
                 </button>
               ))}
           </div>
