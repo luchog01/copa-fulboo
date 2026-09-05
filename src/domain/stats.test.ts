@@ -91,18 +91,24 @@ describe("computePlayerStats", () => {
 });
 
 describe("computeAllStats", () => {
-  it("sorts by winPct descending", () => {
+  it("sorts by won descending, using winPct as tiebreaker", () => {
     const p1 = makePlayer(1, "A");
     const p2 = makePlayer(2, "B");
     const m1 = makeMatch(1, 3, 0);
-    const m2 = makeMatch(2, 0, 3);
+    const m2 = makeMatch(2, 3, 0);
+    const m3 = makeMatch(3, 3, 0);
+    const m4 = makeMatch(4, 0, 3);
     const rows = [
+      // p1: 1 match, 1 win -> winPct 100
       makeRow({ matchId: 1, playerId: 1, team: "home", isMvp: false }, m1, 1),
+      // p2: 3 matches, 2 wins, 1 loss -> winPct 67
       makeRow({ matchId: 2, playerId: 2, team: "home", isMvp: false }, m2, 2),
+      makeRow({ matchId: 3, playerId: 2, team: "home", isMvp: false }, m3, 3),
+      makeRow({ matchId: 4, playerId: 2, team: "home", isMvp: false }, m4, 4),
     ];
     const stats = computeAllStats([p1, p2], rows);
-    expect(stats[0].player.id).toBe(1); // 100% winPct first
-    expect(stats[1].player.id).toBe(2); // 0% winPct second
+    expect(stats[0].player.id).toBe(2); // more wins (2) despite lower winPct
+    expect(stats[1].player.id).toBe(1); // fewer wins (1) despite higher winPct
   });
 
   it("includes players with zero matches", () => {

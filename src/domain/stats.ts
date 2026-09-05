@@ -44,5 +44,5 @@ export function computeAllStats(
       const rows = matchPlayerRows.filter((r) => r.playerId === player.id);
       return computePlayerStats(player, rows);
     })
-    .sort((a, b) => b.winPct - a.winPct || b.won - a.won);
+    .sort((a, b) => b.won - a.won || b.winPct - a.winPct);
 }
