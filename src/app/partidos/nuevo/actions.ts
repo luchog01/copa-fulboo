@@ -2,8 +2,11 @@
 
 import { z } from "zod";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "@/lib/auth";
 import { createMatch } from "@/repositories/matches";
+import { createPlayer, findPlayerByName } from "@/repositories/players";
+import type { Player } from "@/db/schema";
 
 const matchSchema = z.object({
   playedAt: z.string().min(1, "Fecha requerida"),
@@ -54,4 +57,28 @@ export async function createMatchAction(
   );
 
   redirect(`/partidos/${match.id}`);
+}
+
+const quickPlayerSchema = z.object({
+  name: z.string().trim().min(1, "Nombre requerido").max(100),
+});
+
+export type QuickPlayerResult =
+  | { player: Player; error?: undefined }
+  | { error: string; player?: undefined };
+
+export async function quickCreatePlayerAction(
+  name: string,
+): Promise<QuickPlayerResult> {
+  await requireAuth();
+
+  const parsed = quickPlayerSchema.safeParse({ name });
+  if (!parsed.success) return { error: parsed.error.issues[0].message };
+
+  const existing = await findPlayerByName(parsed.data.name);
+  if (existing) return { player: existing };
+
+  const player = await createPlayer({ name: parsed.data.name });
+  revalidatePath("/jugadores");
+  return { player };
 }

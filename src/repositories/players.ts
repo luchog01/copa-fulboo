@@ -1,6 +1,6 @@
 import { db } from "@/db/client";
 import { players, matchPlayers, matches } from "@/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, sql } from "drizzle-orm";
 import type { NewPlayer } from "@/db/schema";
 
 export async function getAllPlayers() {
@@ -15,6 +15,14 @@ export async function getPlayerById(id: number) {
 export async function createPlayer(data: NewPlayer) {
   const rows = await db.insert(players).values(data).returning();
   return rows[0];
+}
+
+export async function findPlayerByName(name: string) {
+  const rows = await db
+    .select()
+    .from(players)
+    .where(sql`lower(${players.name}) = lower(${name})`);
+  return rows[0] ?? null;
 }
 
 export async function updatePlayer(id: number, data: Pick<NewPlayer, "name" | "nickname">) {

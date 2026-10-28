@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import { createMatchAction } from "./actions";
+import { createMatchAction, quickCreatePlayerAction } from "./actions";
 import type { Player } from "@/db/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,20 +23,45 @@ function playerLabel(p: Player) {
   return p.nickname ? `${p.name} (${p.nickname})` : p.name;
 }
 
+const CREATE_VALUE = -1;
+
 function PlayerCombobox({
   label,
   players,
   availablePlayers,
   selectedIds,
   onChangeIds,
+  onCreatePlayer,
 }: {
   label: string;
   players: Player[];
   availablePlayers: Player[];
   selectedIds: number[];
   onChangeIds: (ids: number[]) => void;
+  onCreatePlayer: (name: string) => Promise<Player | null>;
 }) {
   const [query, setQuery] = useState("");
+  const [creating, setCreating] = useState(false);
+  const [createError, setCreateError] = useState<string | null>(null);
+
+  const trimmed = query.trim();
+  const nameTaken = players.some(
+    (p) => p.name.toLowerCase() === trimmed.toLowerCase()
+  );
+  const canCreate = trimmed.length > 0 && !nameTaken;
+
+  async function handleCreate() {
+    setCreating(true);
+    setCreateError(null);
+    const player = await onCreatePlayer(trimmed);
+    setCreating(false);
+    if (player) {
+      onChangeIds([...selectedIds, player.id]);
+      setQuery("");
+    } else {
+      setCreateError("No se pudo crear el jugador");
+    }
+  }
 
   const filtered = query.trim()
     ? availablePlayers.filter((p) =>
@@ -52,7 +77,11 @@ function PlayerCombobox({
       <ComboboxRoot
         multiple
         value={selectedIds}
-        onValueChange={(ids) => {
+        onValueChange={(ids: number[]) => {
+          if (ids.includes(CREATE_VALUE)) {
+            void handleCreate();
+            return;
+          }
           onChangeIds(ids);
           setQuery("");
         }}
@@ -79,18 +108,25 @@ function PlayerCombobox({
               {playerLabel(p)}
             </ComboboxItem>
           ))}
-          {filtered.length === 0 && (
+          {canCreate && (
+            <ComboboxItem value={CREATE_VALUE}>
+              {creating ? "Creando..." : `+ Crear "${trimmed}"`}
+            </ComboboxItem>
+          )}
+          {filtered.length === 0 && !canCreate && (
             <div className="py-4 text-center text-sm text-muted-foreground">
               Sin resultados
             </div>
           )}
         </ComboboxContent>
       </ComboboxRoot>
+      {createError && <p className="text-destructive text-xs">{createError}</p>}
     </div>
   );
 }
 
-export function NewMatchForm({ players }: Props) {
+export function NewMatchForm({ players: initialPlayers }: Props) {
+  const [players, setPlayers] = useState<Player[]>(initialPlayers);
   const [state, action, pending] = useActionState(createMatchAction, null);
   const [homePlayers, setHomePlayers] = useState<number[]>([]);
   const [awayPlayers, setAwayPlayers] = useState<number[]>([]);
@@ -100,6 +136,18 @@ export function NewMatchForm({ players }: Props) {
   const availablePlayers = players.filter(
     (p) => !homePlayers.includes(p.id) && !awayPlayers.includes(p.id)
   );
+
+  async function createPlayer(name: string): Promise<Player | null> {
+    const res = await quickCreatePlayerAction(name);
+    if (!res.player) return null;
+    const created = res.player;
+    setPlayers((prev) =>
+      prev.some((p) => p.id === created.id)
+        ? prev
+        : [...prev, created].sort((a, b) => a.name.localeCompare(b.name))
+    );
+    return created;
+  }
 
   const now = new Date();
   const defaultDateTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}T${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
@@ -149,6 +197,7 @@ export function NewMatchForm({ players }: Props) {
           availablePlayers={availablePlayers}
           selectedIds={homePlayers}
           onChangeIds={setHomePlayers}
+          onCreatePlayer={createPlayer}
         />
         <PlayerCombobox
           label="Visitante"
@@ -156,6 +205,7 @@ export function NewMatchForm({ players }: Props) {
           availablePlayers={availablePlayers}
           selectedIds={awayPlayers}
           onChangeIds={setAwayPlayers}
+          onCreatePlayer={createPlayer}
         />
       </div>
 
